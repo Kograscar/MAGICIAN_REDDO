@@ -17,10 +17,12 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xMove = Input.GetAxis("Vertical") * _speed * Time.deltaTime;
-        float yMove;
-        float zMove = Input.GetAxis("Horizontal") * _speed * Time.deltaTime;
+        float actualSpeed = _speed;
 
-        _rig.velocity = new Vector3(xMove, _rig.velocity.y, zMove);
+        float xMove = Input.GetAxis("Vertical");
+        float yMove = _rig.velocity.y;
+        float zMove = Input.GetAxis("Horizontal");
+        
+        _rig.velocity = (transform.forward * xMove + transform.up * yMove + transform.right * zMove) * _speed * Time.deltaTime;
     }
 }
