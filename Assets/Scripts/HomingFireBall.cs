@@ -27,6 +27,20 @@ public class HomingFireBall : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
 
         _rig.velocity = transform.forward * _speed * Time.deltaTime;
+
+
+        //Utilise ça
+
+        /*
+        if (target != null)
+        {
+            Vector3 direction = target.position - rig.position;
+            direction.Normalize();
+            Vector3 rotationAmount = Vector3.Cross(transform.forward, direction);
+            rig.angularVelocity = rotationAmount * rotationSpeed;
+        }
+
+        rig.velocity = transform.forward * speed * Time.deltaTime;*/
     }
 
     private void OnCollisionEnter(Collision collision)

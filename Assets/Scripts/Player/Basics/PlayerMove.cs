@@ -23,6 +23,10 @@ public class PlayerMove : MonoBehaviour
         float yMove = _rig.velocity.y;
         float zMove = Input.GetAxis("Horizontal");
         
-        _rig.velocity = (transform.forward * xMove + transform.up * yMove + transform.right * zMove) * _speed * Time.deltaTime;
+        _rig.velocity = 
+            (transform.forward * xMove +
+            transform.up * yMove +
+            transform.right * zMove) *
+            _speed * Time.deltaTime;
     }
 }
